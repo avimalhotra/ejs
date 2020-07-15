@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello EJS</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>Hello EJS </h1>
-    <p>Name is <%= name %>  and id is <%= id %>  </p>
+    <div class="container">
+        <%- include('header'); %>
+        <%- include('nav'); %>
+        <section>
+            <h2>Section</h2>
+            <p> <%= name %> <%= id %></p>
+            <% if (isAvailable) { %>
+            <p>Yes</p>
+            <% } %>
+            <h2>List</h2>
+            <ol>
+                <% month.forEach(function(name) { %>
+                    <li><%= name %></li>
+                <% }); %>
+            </ol>
+            <ul>
+                <li><%= person.name %></li>
+                <li><%= person.age %></li>
+                <li><%= person.empid %></li>
+            </ul>
+
+        </section>
+        <%- include('footer'); %>
+    </div>
+    <script src="js/common.js"></script>
 </body>
+
 </html>
